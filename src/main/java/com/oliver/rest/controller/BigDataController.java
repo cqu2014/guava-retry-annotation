@@ -1,6 +1,6 @@
 package com.oliver.rest.controller;
 
-import com.oliver.rest.contants.ConstantData;
+import com.oliver.rest.constants.ConstantData;
 import com.oliver.rest.exception.BusinessException;
 import com.oliver.rest.response.BaseResponseVo;
 import com.oliver.rest.vo.Person;

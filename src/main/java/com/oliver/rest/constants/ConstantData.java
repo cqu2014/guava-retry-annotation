@@ -1,4 +1,4 @@
-package com.oliver.rest.contants;
+package com.oliver.rest.constants;
 
 /**
  * @author Oliver Wang

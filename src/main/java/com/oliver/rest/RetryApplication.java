@@ -20,7 +20,7 @@ import java.util.Arrays;
  */
 @SpringBootApplication
 @EnableConfigurationProperties
-public class RestApplication {
+public class RetryApplication {
 	/**
 	 * 需要验证的hostname
 	 */
@@ -34,7 +34,7 @@ public class RestApplication {
 	};
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestApplication.class, args);
+		SpringApplication.run(RetryApplication.class, args);
 	}
 
 

@@ -1,7 +1,7 @@
 package com.oliver.rest.rpc.config;
 
 import com.oliver.rest.rpc.configuration.BigDataRpcProperties;
-import com.oliver.rest.contants.ConstantData;
+import com.oliver.rest.constants.ConstantData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
