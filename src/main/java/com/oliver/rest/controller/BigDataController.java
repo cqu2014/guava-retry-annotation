@@ -88,7 +88,9 @@ public class BigDataController {
         }else  if (person.getAge() > ConstantData.BAD_MAN_AGE) {
             isGoodMan = false;
         }
-        return new BaseResponseVo<>(isGoodMan);
+        //return new BaseResponseVo<>(isGoodMan);
+
+        return null;
     }
 
 }

@@ -6,6 +6,6 @@ spring:
 
 #调用服务地址
 service.url:
-  host: localhost:8081
+  host: http://127.0.0.1:8081
   user: oliver
   password: 123456

@@ -2,6 +2,7 @@
 
 ### spring-restTemplate for RPC
 RestTemplate定义了36个与REST资源交互的方法，其中的大多数都对应于HTTP的方法:
+
 * delete() 在特定的URL上对资源执行HTTP DELETE操作
 * exchange() 在URL上执行特定的HTTP方法，返回包含对象的ResponseEntity，这个对象是从响应体中映射得到的，execute()在URL上执行特定的HTTP方法，返回一个从响应体映射得到的对象
 * getForEntity() 发送一个HTTP GET请求，返回的ResponseEntity包含了响应体所映射成的对象 
@@ -21,8 +22,11 @@ Guava retryer在支持重试次数和重试频度控制基础上，能够兼容�
 * 监听接口：RetryListener
 * 异常ExecutionException和RetryException
 
-### Additional Links
-These additional references should also help you:
+### 基于注解的Guava-retry
+类似于spring-retrying，使用Aop完成基于guava-retry的重试注解方式：
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
+### GUAVA单接口限流
+
+* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
