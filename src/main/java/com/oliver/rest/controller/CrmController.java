@@ -5,6 +5,7 @@ import com.oliver.rest.vo.Person;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,12 +39,12 @@ public class CrmController {
         return iCrmService.privatePerson(9999L,19,"ergou");
     }
 
-    @GetMapping("/four")
-    public Object four(){
+    @GetMapping("/four/{type}")
+    public Object four(@PathVariable int type){
         return iCrmService.isGoodMan(Person.builder()
                 .age(16)
                 .id(100L)
                 .name("徐二狗")
-                .build());
+                .build(),type);
     }
 }

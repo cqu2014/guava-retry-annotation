@@ -1,6 +1,7 @@
 package com.oliver.rest.controller;
 
 import com.oliver.rest.contants.ConstantData;
+import com.oliver.rest.exception.BusinessException;
 import com.oliver.rest.response.BaseResponseVo;
 import com.oliver.rest.vo.Person;
 import lombok.extern.slf4j.Slf4j;
@@ -80,17 +81,22 @@ public class BigDataController {
      * @param person
      * @return
      */
-    @PostMapping("/person/verify")
-    public BaseResponseVo<Boolean> isGoodMan(@RequestBody Person person){
+    @PostMapping("/person/verify/{type}")
+    public BaseResponseVo<Boolean> isGoodMan(@RequestBody Person person,@PathVariable int type){
         boolean isGoodMan = true;
         if (Objects.isNull(person)){
             isGoodMan = false;
         }else  if (person.getAge() > ConstantData.BAD_MAN_AGE) {
             isGoodMan = false;
         }
-        //return new BaseResponseVo<>(isGoodMan);
-
-        return null;
+        switch (type) {
+            case 1:
+                return null;
+            case 2:
+                throw new BusinessException("001200","RPC抛异常,retry.call(callable)抛 ExecutionException异常");
+            default:
+                    return new BaseResponseVo<>(isGoodMan);
+        }
     }
 
 }

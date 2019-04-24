@@ -135,6 +135,9 @@ public abstract class ServiceRpcClientImpl implements IServiceRpcClient {
 
         /**
          * 定义重试策略
+         *
+         * 重试结束依然满足重试策略则抛 RetryException：代表所有重试均失败
+         * 重试过程中发生异常则抛 ExecutionException: 代表重试过程中发生异常
          */
         Retryer<String> retryer = RetryerBuilder.<String>newBuilder()
                 //返回体为空
@@ -155,7 +158,9 @@ public abstract class ServiceRpcClientImpl implements IServiceRpcClient {
         String result;
         try {
             result = retryer.call(callable);
-            //???? result 会为空还是抛了异常????????
+            /**???? result 会为空还是抛了异常????????==>因为重试3次还满足重试测试略抛RetryException异常
+             * RetryException: Retrying failed to complete successfully after 3 attempts.
+             */
             log.info("requestWithRetry final result = {}", result);
         } catch (ExecutionException e) {
             log.warn("Callable执行异常:", e);

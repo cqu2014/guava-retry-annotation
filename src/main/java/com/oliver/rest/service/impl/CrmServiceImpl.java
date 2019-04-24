@@ -53,9 +53,9 @@ public class CrmServiceImpl implements ICrmService {
     }
 
     @Override
-    public BaseResponseVo<Boolean> isGoodMan(Person person) {
+    public BaseResponseVo<Boolean> isGoodMan(Person person,int type) {
         log.info("getPersonById:input data [{}]", JSON.toJSONString(person));
-        Optional<String> optionalS = iServiceRpcClient.postRequest("/bi//person/verify",person);
+        Optional<String> optionalS = iServiceRpcClient.postRequest("/bi/person/verify/{type}",person,type);
 
         return new BaseResponseVo<>(optionalS.map(JSONObject::parseObject)
                 .map(x->Boolean.parseBoolean(x.getString("info")))

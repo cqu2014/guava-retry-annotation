@@ -30,3 +30,7 @@ Guava retryer在支持重试次数和重试频度控制基础上，能够兼容�
 ### GUAVA单接口限流
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+
+#### tips
+* @PathVariable 获取URl中"?"之前的参数
+* @RequestParam 获取URl中"?"之后key="value"中对应key的value的值

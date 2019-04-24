@@ -45,5 +45,5 @@ public interface ICrmService {
      * @param person
      * @return
      */
-    BaseResponseVo<Boolean> isGoodMan(Person person);
+    BaseResponseVo<Boolean> isGoodMan(Person person,int type);
 }
