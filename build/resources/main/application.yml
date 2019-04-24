@@ -1,0 +1,11 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: rest for spring boot
+
+#调用服务地址
+service.url:
+  host: localhost:8081
+  user: oliver
+  password: 123456

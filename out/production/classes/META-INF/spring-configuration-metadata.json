@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "service.url",
+      "type": "com.oliver.rest.rpc.configuration.BigDataRpcProperties",
+      "sourceType": "com.oliver.rest.rpc.configuration.BigDataRpcProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "service.url.host",
+      "type": "java.lang.String",
+      "description": "包含:port",
+      "sourceType": "com.oliver.rest.rpc.configuration.BigDataRpcProperties"
+    },
+    {
+      "name": "service.url.password",
+      "type": "java.lang.String",
+      "sourceType": "com.oliver.rest.rpc.configuration.BigDataRpcProperties"
+    },
+    {
+      "name": "service.url.user",
+      "type": "java.lang.String",
+      "sourceType": "com.oliver.rest.rpc.configuration.BigDataRpcProperties"
+    }
+  ],
+  "hints": []
+}
