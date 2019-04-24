@@ -95,7 +95,7 @@ public class BigDataController {
             case 2:
                 throw new BusinessException("001200","RPC抛异常,retry.call(callable)抛 ExecutionException异常");
             default:
-                    return new BaseResponseVo<>(isGoodMan);
+                return new BaseResponseVo<>(isGoodMan);
         }
     }
 
