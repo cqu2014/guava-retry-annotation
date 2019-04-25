@@ -1,4 +1,4 @@
-# JAVA-Retry with GUAVA
+# JAVA-Retry-Annotation with GUAVA
 
 ### spring-restTemplate for RPC
 RestTemplate定义了36个与REST资源交互的方法，其中的大多数都对应于HTTP的方法:
