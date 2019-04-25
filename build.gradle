@@ -27,5 +27,6 @@ dependencies {
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.57'
 	compile group: 'com.github.rholder', name: 'guava-retrying', version: '2.0.0'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.4.RELEASE'
 
 }

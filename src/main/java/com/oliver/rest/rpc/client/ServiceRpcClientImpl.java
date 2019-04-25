@@ -3,10 +3,12 @@ package com.oliver.rest.rpc.client;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.rholder.retry.*;
+import com.oliver.rest.annotation.listner.MyRetryListener;
 import com.oliver.rest.exception.BusinessException;
 import com.oliver.rest.rpc.config.RpcConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -36,6 +38,7 @@ public abstract class ServiceRpcClientImpl implements IServiceRpcClient {
     protected RpcConfig rpcConfig;
 
     @Autowired
+    @Qualifier("restTemplate")
     RestTemplate restTemplate;
 
     /**
@@ -172,24 +175,4 @@ public abstract class ServiceRpcClientImpl implements IServiceRpcClient {
         return Optional.ofNullable(result);
     }
 
-}
-
-
-@Slf4j
-class MyRetryListener implements RetryListener {
-
-    @Override
-    public <String> void onRetry(Attempt<String> attempt) {
-        log.info("[retry]time=" + attempt.getAttemptNumber());
-        if (attempt.hasException()) {
-            log.error("retry exception", attempt.getExceptionCause());
-        }
-        if (attempt.hasResult()) {
-            if (attempt.getResult() == null) {
-                log.info("retry return data is null");
-            } else {
-                log.info("retry return data is:{}", JSON.toJSONString(attempt.getResult()));
-            }
-        }
-    }
 }

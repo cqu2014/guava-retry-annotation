@@ -2,7 +2,7 @@ server:
   port: 8082
 spring:
   application:
-    name: rest for spring boot
+    name: guava-retry for spring boot
 
 #调用服务地址
 service.url:

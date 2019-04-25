@@ -14,11 +14,11 @@ RestTemplate定义了36个与REST资源交互的方法，其中的大多数都�
 * postForLocation() POST 数据到一个URL，返回新创建资源的URL 
 * put() PUT 资源到特定的URL
 
-### Guava-retryer
+### Guava-retry
 Guava retryer在支持重试次数和重试频度控制基础上，能够兼容支持多个异常或者自定义实体对象的重试源定义，让重试功能有更多的灵活性。Guava Retryer也是线程安全的，入口调用逻辑采用的是Java.util.concurrent.Callable的call方法
 
 * 入口：java.util.concurrent.Callable
-* 重试策略定义：Retryer<String> retryer = RetryerBuilder.<String>newBuilder().build();
+* 重试策略定义：Retryer<String> retry = RetryerBuilder.<String>newBuilder().build();
 * 监听接口：RetryListener
 * 异常ExecutionException和RetryException
 

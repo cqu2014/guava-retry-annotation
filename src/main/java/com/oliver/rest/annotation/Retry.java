@@ -1,5 +1,7 @@
 package com.oliver.rest.annotation;
 
+import com.oliver.rest.annotation.core.BaseRetryListener;
+import com.oliver.rest.annotation.core.StopStrategyEnum;
 import com.oliver.rest.annotation.core.WaitStrategyEnum;
 
 import java.lang.annotation.*;
@@ -10,7 +12,7 @@ import java.lang.annotation.*;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Retryer {
+public @interface Retry {
     /**
      * 要求Callable返回非空
      *
@@ -37,7 +39,20 @@ public @interface Retryer {
      *
      * @return
      */
-    WaitStrategyEnum WaitStrategies() default WaitStrategyEnum.FIXED_WAIT;
+    WaitStrategyEnum waitStrategy() default WaitStrategyEnum.FIXED_WAIT;
 
+    /**
+     * 重试停止策略
+     *
+     * @return
+     */
+    StopStrategyEnum stopStrategy() default StopStrategyEnum.STOP_AFTER_ATTEMPT_THREE;
+
+    /**
+     * 监听器列表
+     *
+     * @return
+     */
+    Class<? extends BaseRetryListener>[] retryListeners() default {};
 }
 

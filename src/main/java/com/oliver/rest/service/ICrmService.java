@@ -46,4 +46,11 @@ public interface ICrmService {
      * @return
      */
     BaseResponseVo<Boolean> isGoodMan(Person person,int type);
+
+    /**
+     * 测试自定义的注解
+     *
+     * @return
+     */
+    BaseResponseVo<Object> five(int type);
 }

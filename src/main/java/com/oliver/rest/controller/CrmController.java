@@ -47,4 +47,9 @@ public class CrmController {
                 .name("徐二狗")
                 .build(),type);
     }
+
+    @GetMapping("/five/{type}")
+    public Object five(@PathVariable int type){
+        return iCrmService.five(type);
+    }
 }

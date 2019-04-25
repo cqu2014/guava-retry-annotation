@@ -2,8 +2,12 @@ package com.oliver.rest.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.oliver.rest.annotation.Retry;
+import com.oliver.rest.annotation.core.WaitStrategyEnum;
+import com.oliver.rest.annotation.listner.MyRetryListener;
 import com.oliver.rest.response.BaseResponseVo;
 import com.oliver.rest.rpc.client.IServiceRpcClient;
+import com.oliver.rest.rpc.client.ServiceRpcClientImpl;
 import com.oliver.rest.service.ICrmService;
 import com.oliver.rest.vo.Person;
 import lombok.extern.slf4j.Slf4j;
@@ -60,5 +64,18 @@ public class CrmServiceImpl implements ICrmService {
         return new BaseResponseVo<>(optionalS.map(JSONObject::parseObject)
                 .map(x->Boolean.parseBoolean(x.getString("info")))
                 .orElse(false));
+    }
+
+    @Override
+    @Retry(retryListeners = MyRetryListener.class,waitStrategy = WaitStrategyEnum.FIBONACCI_WAIT)
+    public BaseResponseVo<Object> five(int type) {
+        switch (type) {
+            case 0:
+                return null;
+            case 1:
+                throw new RuntimeException();
+                default:
+                    return new BaseResponseVo<>(new Person(9999L,"ergou",19));
+        }
     }
 }

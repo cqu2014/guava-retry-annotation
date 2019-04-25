@@ -2,6 +2,7 @@ package com.oliver.rest.annotation.core;
 
 import com.github.rholder.retry.WaitStrategies;
 import com.github.rholder.retry.WaitStrategy;
+import lombok.Builder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,13 +18,14 @@ public enum WaitStrategyEnum {
      * 固定长度的等待策略
      */
     FIXED_WAIT(WaitStrategies.fixedWait(2, TimeUnit.SECONDS)),
+    FIBONACCI_WAIT(WaitStrategies.fibonacciWait(5,TimeUnit.SECONDS)),
     ;
     /**
      * 等待策略
      */
     private final WaitStrategy waitStrategy;
 
-    public WaitStrategy getCode() {
+    public WaitStrategy getWaitStrategy() {
         return waitStrategy;
     }
 

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Start-Class: com.oliver.rest.RestApplication
+Start-Class: com.oliver.rest.RetryApplication
 Spring-Boot-Classes: BOOT-INF/classes/
 Spring-Boot-Lib: BOOT-INF/lib/
 Spring-Boot-Version: 2.1.4.RELEASE
