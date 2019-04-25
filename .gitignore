@@ -9,13 +9,13 @@ Servers/
 target/
 log/
 
+rpc-retry/out/
+rpc-retry/out/
+rpc-retry/build/
+rpc-retry/bin/
+rpc-retry/build/
+rpc-retry/bin/
 *.class
-rpc-retry/out/
-rpc-retry/out/
-rpc-retry/build/
-rpc-retry/bin/
-rpc-retry/build/
-rpc-retry/bin/
 
 #不提交单测
 rpc-retry/src/test/
